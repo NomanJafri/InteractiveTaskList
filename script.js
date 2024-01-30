@@ -14,7 +14,7 @@ updateDisplay();
 
 //Putting up Listeners for keyup and click
 task.addEventListener('keyup', event => {
-    if (event.key == "Enter"){
+    if (event.key == "Enter" && task.value != ''){
         newTask.push('<li>' + '<input type="checkbox" id=' + newTask.length +'> '+task.value+'<button style="float:right;">Delete</button></li>');
         updateDisplay();
         task.value = '';
@@ -23,7 +23,9 @@ task.addEventListener('keyup', event => {
 
 document.querySelector("#push").onclick = (e) => {
     e.preventDefault();
-    newTask.push('<li>' + '<input type="checkbox" id=' + newTask.length +'> '+task.value+'<button style="float:right;">Delete</button></li>');
-    updateDisplay();
-    task.value = '';
+    if (task.value != '') {
+        newTask.push('<li>' + '<input type="checkbox" id=' + newTask.length +'> '+task.value+'<button style="float:right;">Delete</button></li>');
+        updateDisplay();
+        task.value = '';
+    }
 }
