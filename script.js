@@ -15,6 +15,16 @@ const delEventHandler = (e) => {
     updateDisplay();
 }
 
+//check box click event handler
+const checkboxHandler = (e) => {    
+    let element = document.getElementById(e.target.id).nextElementSibling;
+    if (element.classList != 'strike-through'){
+        element.classList = 'strike-through';
+    }else {
+        element.classList = '';
+    }
+}
+
 // Update display when any user interaction took place
 function updateDisplay() {
     let html = '' ;
@@ -26,12 +36,14 @@ function updateDisplay() {
 
     // Remove event listeners important for performance / behaviour
     for (let i = 0; i < delButtons.length; i++) {
-        delButtons[i].removeEventListener("click", delEventHandler, true)
+        delButtons[i].removeEventListener("click", delEventHandler, true);
+        checkInputs[i].removeEventListener('click', checkboxHandler, true);
     }
     
     // setting up new event listeners on current delete buttons
     for (let i = 0; i < delButtons.length; i++) {
-        delButtons[i].addEventListener("click", delEventHandler, true);        
+        delButtons[i].addEventListener("click", delEventHandler, true);
+        checkInputs[i].addEventListener('click', checkboxHandler, true);        
     }
 }
 
