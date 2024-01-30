@@ -1,14 +1,11 @@
-/* Font: Sans-serif
-
-
-bullet
+/* 
+Company poliy:
+Font: Sans-serif
 Colors: #0F62FE for main elements, 
 #BAE6FF for contrasting elements, 
 #FFFFFF for white elements
-
-
-bullet
-Borders: Must be rounded on all elements */
+Borders: Must be rounded on all elements
+*/
 
 * , *::after, *::before {
     padding: 0;
@@ -22,16 +19,16 @@ body {
 }
 
 #head-text {
-    margin: 50px 0 0 10px;
+    margin: 40px 0 40px 10px;
     color: #0F62FE;
 }
 
 .container {
-    background-color: #FFFFFF;
+    background-color: #FFFFFF;  
     width: 40%;
-    top: 30%;
+    top: 25%;
     left: 50%;
-    min-height: 40%;
+    min-height: 100px;
     min-width: 450px;
     position: absolute; 
     border-radius: 1px;
@@ -40,7 +37,7 @@ body {
 
 .input-task {
     width: 100%;
-    padding: 30px 0 20px 0;
+    padding: 0px 0 0px 0;
 }
 
 .input-task input {
@@ -68,14 +65,13 @@ body {
 }
 
 .display-task {
-    /* border: 2px solid #BAE6FF; */
     background-color: #FFFFFF;
     margin: 0;
     padding: 30px 0px;
     width: 100%;
-    min-height: 100px;
-    max-height: 300px;
     position: absolute;
+    overflow-y: auto;
+    max-height: 225px;
 }
 
 .display-task li{
@@ -98,7 +94,6 @@ body {
 }
 
 .display-task button {
-    /* padding: 0px; */
     height: 15px;
     width: 20px;
     border: 0px solid #BAE6FF;
@@ -111,10 +106,22 @@ body {
     width: 20px;
 }
 
-.display-task::-webkit-scrollbar {
+.display-task::-webkit-scrollbar { 
+    width: 10px; 
     color: #0F62FE;
     background-color: #BAE6FF;
 }
+
+.display-task::-webkit-scrollbar-track { 
+    background: #BAE6FF; 
+    border-radius: 25px; 
+}
+
+.display-task::-webkit-scrollbar-thumb {    
+    background: #0D75EC;
+    border-radius: 25px; 
+}
+
 
 .strike-through {
     text-decoration: line-through;
