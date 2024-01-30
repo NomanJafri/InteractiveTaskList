@@ -83,6 +83,15 @@ body {
     margin: 25px 0 25px 20px;
 }
 
+.display-task input {
+    outline: none;
+    border:2px solid #BAE6FF;    
+}
+
+.display-task input:focus {
+    border: 2px solid #0F62FE;
+}
+
 .display-task p {
     margin-left: 10px;
     display: inline-block;
