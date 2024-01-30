@@ -67,11 +67,11 @@ body {
 .display-task {
     background-color: #FFFFFF;
     margin: 0;
-    padding: 30px 0px;
+    padding: 20px 0px 0 0;
     width: 100%;
     position: absolute;
     overflow-y: auto;
-    max-height: 225px;
+    max-height: 300px;
 }
 
 .display-task li{
