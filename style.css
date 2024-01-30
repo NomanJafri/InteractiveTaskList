@@ -2,8 +2,86 @@
 
 
 bullet
-Colors: #0F62FE for main elements, #BAE6FF for contrasting elements, #FFFFFF for white elements
+Colors: #0F62FE for main elements, 
+#BAE6FF for contrasting elements, 
+#FFFFFF for white elements
 
 
 bullet
 Borders: Must be rounded on all elements */
+
+* , *::after, *::before {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background: #0F62FE;
+    font-family: sans-serif;
+}
+
+#head-text {
+    margin: 50px 0 0 10px;
+    color: #0F62FE;
+}
+
+.container {
+    background-color: #FFFFFF;
+    width: 40%;
+    top: 30%;
+    left: 50%;
+    min-height: 40%;
+    min-width: 450px;
+    position: absolute; 
+    border-radius: 1px;
+    transform: translate(-50%, -50%);
+}
+
+.input-task {
+    margin: 60px 0 20px 0;
+}
+
+.input-task input {
+    font-size: 17px;
+    border:2px solid #BAE6FF;
+    margin: 0 2% 0 10px;
+    padding: 0.5% 0 0.5% 1.5%;
+    height: 35px;
+    width: 75%;
+    border-radius: 3%;
+}
+
+.input-task input:focus {
+    outline: none;    
+    border: 2px solid #0F62FE;
+}
+
+.input-task button {
+    font-size: 17px;
+    padding: 2.7% 5%;
+    background-color: #0F62FE;
+    color: #FFFFFF;
+    border-radius: 5%;
+    border: #BAE6FF;
+}
+
+.display-task {
+    /* border: 2px solid #BAE6FF; */
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 30px 20px;
+    width: 91.1%;
+    min-height: 100px;
+    max-height: 300px;
+    position: absolute;
+}
+
+.display-task li{
+    margin: 25px 0;
+}
+
+.display-task::-webkit-scrollbar {
+    color: #0F62FE;
+    background-color: #BAE6FF;
+}
