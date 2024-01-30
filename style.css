@@ -89,10 +89,9 @@ body {
 }
 
 .display-task button {
-    padding: 0px;
-    /* background-image: url('./assets/delete-button-svgrepo-com.svg'); */
-    /* height: 30px;
-    width: 50px; */
+    /* padding: 0px; */
+    height: 15px;
+    width: 20px;
     border: 0px solid #BAE6FF;
     border-radius: 7%;
     margin-right: 20px;
@@ -106,4 +105,12 @@ body {
 .display-task::-webkit-scrollbar {
     color: #0F62FE;
     background-color: #BAE6FF;
+}
+
+.strike-through {
+    text-decoration: line-through;
+}
+
+.delete-button {
+    float:right;
 }
