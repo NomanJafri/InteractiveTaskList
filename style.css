@@ -79,7 +79,8 @@ body {
 }
 
 .display-task li{
-    margin: 25px 0;
+    list-style: none;
+    margin: 25px 0 25px 20px;
 }
 
 .display-task::-webkit-scrollbar {
