@@ -1,37 +1,31 @@
 //putting DOM connections for manipulation
 const displayTask = document.querySelector('.display-task');
 const task = document.querySelector(".input-task input");
-const newTask = ['<li> <input type="checkbox" id="0"><p>First</p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg" id="0"></button></li>', '<li> <input type="checkbox" id="1"><p>Second</p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg" id="1"></button></li>', '<li><input type="checkbox" id="2"><p> Third </p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg" id="2"></button></li>'];
-let delButtons = [];
-let checkInputs =[];
-let useId = 3;
+var newTask = '<li> <input type="checkbox" id="0"><p>First</p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg" id="0"></button></li><li> <input type="checkbox" id="1"><p>Second</p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg" id="1"></button></li><li><input type="checkbox" id="2"><p> Third </p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg" id="2"></button></li>';
 
 //delete button event handler function
-const delEventHandler = (e) => {
+const delEventHandler = function (e) {
     e.preventDefault();
-    // filter method returns list always remember to use box notation for accessinf an item
-    let currentTargetIndex = newTask.indexOf(newTask.filter( v => v.includes(e.target.id))[0]);
-    newTask.splice(currentTargetIndex, 1);
-    updateDisplay();
+    this.parentNode.remove();
 }
 
 //check box click event handler
-const checkboxHandler = (e) => {    
-    let element = document.getElementById(e.target.id).nextElementSibling;
+const checkboxHandler = function () {    
+    let element = this.nextElementSibling;
     if (element.classList != 'strike-through'){
-        element.classList = 'strike-through';
+        element.classList.add('strike-through');
     }else {
-        element.classList = '';
+        element.classList.remove('strike-through');
     }
 }
 
 // Update display when any user interaction took place
 function updateDisplay() {
-    let html = '' ;
-    newTask.forEach((v, i) => {html = html + v})    
-    displayTask.innerHTML ='<ul>' + html + '</ul>';
-    delButtons = document.getElementsByClassName("delete-button");
-    checkInputs = document.querySelectorAll(".display-task input");
+    // let html = '' ;
+    // newTask.forEach((v, i) => {html = html + v})    
+    displayTask.innerHTML ='<ul>' + newTask + '</ul>';
+    const delButtons = document.getElementsByClassName("delete-button");
+    const checkInputs = document.querySelectorAll(".display-task input");
     console.log(checkInputs);
 
     // Remove event listeners important for performance / behaviour
@@ -50,14 +44,20 @@ function updateDisplay() {
 // calling update display for first mounting display
 updateDisplay();
 
+//create new task handler function
+function createNewTask(value) {
+    newTask = document.querySelector(".display-task ul").innerHTML
+    newTask += '<li><input type="checkbox"><p>'+value+'</p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg"></button></li>';
+    updateDisplay();
+    task.value = '';
+}
 
 //Putting up Listeners for keyup and click
 task.addEventListener('keyup', event => {
     if (event.key == "Enter" && task.value != ''){
-        newTask.push('<li>' + '<input type="checkbox" id=' + useId +'> <p>'+task.value+'</p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg" id=' + useId +'></button></li>');
-        useId ++;
-        updateDisplay();
-        task.value = '';
+        createNewTask(task.value);
+    }else if(event.key == "Enter" && task.value == '') {
+        alert("Write a task to add before pressing Enter");
     };
 });
 
@@ -65,9 +65,8 @@ task.addEventListener('keyup', event => {
 document.querySelector("#push").onclick = (e) => {
     e.preventDefault();
     if (task.value != '') {
-        newTask.push('<li>' + '<input type="checkbox" id=' + useId +'> <p>'+task.value+'</p><button class="delete-button"><img src="./assets/delete-button-svgrepo-com.svg" id=' + useId +'></button></li>');
-        useId ++;
-        updateDisplay();
-        task.value = '';
+        createNewTask(task.value);
+    }else if(task.value == ''){
+        alert("Write a task to add before clicking 'Add' button");
     }
 }
