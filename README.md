@@ -1,4 +1,4 @@
 index.html
-scripts.js
-styles.css
-./assets/
+script.js
+style.css
+./assets/delete-button-svgrepo-com.svg
